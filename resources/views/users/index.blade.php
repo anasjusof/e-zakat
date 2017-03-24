@@ -50,7 +50,7 @@
 	</div>
 	
 
-    <div class="col-md-6 col-md-offset-1">
+    <div class="col-md-7">
     	<!-- BEGIN BORDERED TABLE PORTLET-->
 	    <div class="portlet light portlet-fit bordered">
 	        <div class="portlet-title">
@@ -62,6 +62,24 @@
 	        <div class="portlet-body">
 	            <div class="table-scrollable table-scrollable-borderless">
 	                {!! Form::open(['url' => '']) !!}
+	                	<div class="form-group col-md-12">
+				            <label for="inputPassword1" class="col-md-4 control-label">Bank</label>
+				            <div class="col-md-8">
+				                    <select class="bs-select form-control">
+				                        <option>Maybank</option>
+				                        <option>CIMB</option>
+				                        <option>Hong Leong</option>
+				                    </select>
+				            </div>
+				        </div>
+	                	<div class="form-group col-md-12">
+                            <label for="inputPassword1" class="col-md-4 control-label">Account Number</label>
+                            <div class="col-md-8">
+                                <div class="input-icon right">
+                                    <i class="fa fa-info"></i>
+                                    <input type="password" class="form-control" id="inputPassword1"> </div>
+                            </div>
+                        </div>
 				        <div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Zakat Type</label>
 				            <div class="col-md-8">
