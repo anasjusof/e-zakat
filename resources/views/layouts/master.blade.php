@@ -56,7 +56,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <link href="../assets/global/css/components.css" id="style_components" rel="stylesheet" type="text/css"/>
 <link href="../assets/global/css/plugins.css" rel="stylesheet" type="text/css"/>
 <link href="../assets/admin/layout/css/layout.css" rel="stylesheet" type="text/css"/>
-<link id="style_color" href="../assets/admin/layout/css/themes/darkblue.css" rel="stylesheet" type="text/css"/>
+<link id="style_color" href="../assets/admin/layout/css/themes/default.css" rel="stylesheet" type="text/css"/>
 <link href="../assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 
@@ -169,46 +169,20 @@ License: You must have a valid license purchased only from themeforest(the above
 				<li>
 					<a href="javascript:;">
 					<i class="icon-home"></i>
-					<span class="title">User Management</span>
+					<span class="title">Zakat</span>
 					<span class="selected"></span>
 					<span class="arrow open"></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
-							<a href="{{route('user.index')}}">
-							<i class="icon-users"></i>
-							View All User</a>
-						</li>
-						<li>
-							<a href="{{route('user.create')}}">
+							<a href=" ">
 							<i class="icon-plus"></i>
-							Create New User</a>
-						</li>
-					</ul>
-				</li>
-
-				<li>
-					<a href="javascript:;">
-					<i class="icon-home"></i>
-					<span class="title">Hotel Management</span>
-					<span class="selected"></span>
-					<span class="arrow open"></span>
-					</a>
-					<ul class="sub-menu">
-						<li>
-							<a href="{{route('room.showBookingList')}}">
-							<i class="icon-home"></i>
-							View Booking</a>
+							Pay Zakat</a>
 						</li>
 						<li>
-							<a href="{{route('user.index')}}">
-							<i class="icon-users"></i>
-							Manage Room</a>
-						</li>
-						<li>
-							<a href="{{route('room.index')}}">
-							<i class="icon-plus"></i>
-							Booking</a>
+							<a href=" ">
+							<i class="icon-calendar"></i>
+							View your history</a>
 						</li>
 					</ul>
 				</li>
@@ -262,7 +236,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- BEGIN FOOTER -->
 <div class="page-footer">
 	<div class="page-footer-inner">
-		 2014 &copy; Metronic by keenthemes.
+		 2017 &copy; Development.Inc
 	</div>
 	<div class="scroll-to-top">
 		<i class="icon-arrow-up"></i>
