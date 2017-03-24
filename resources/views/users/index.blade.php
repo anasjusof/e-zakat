@@ -36,7 +36,7 @@
 	                            <td> 1 </td>
 	                            <td> Zakat Fitrah </td>
 	                            <td> 03-03-2017 </td>
-	                            <td> <button class="btn btn-transparent red btn-outline btn-circle btn-sm active"> Download </button> </td>
+	                            <td> <button class="btn btn-transparent yellow-lemon btn-circle btn-sm active"> Download </button> </td>
 	                            <td>
 	                                <span class="label label-success"> Approved </span>
 	                            </td>
@@ -55,7 +55,7 @@
 	    <div class="portlet light portlet-fit bordered">
 	        <div class="portlet-title">
 	            <div class="caption">
-	                <i class="icon-calendar font-red"></i>
+	                <i class="icon-credit-card font-red"></i>
 	                <span class="caption-subject font-red sbold uppercase">Pay Zakat</span>
 	            </div>
 	        </div>

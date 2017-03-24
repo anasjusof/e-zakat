@@ -23,7 +23,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <head>
 <?php date_default_timezone_set("Asia/Kuala_Lumpur"); ?>
 <meta charset="utf-8"/>
-<title>Laravel Project</title>
+<title>E-Zakat</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <meta content="" name="description"/>
@@ -120,7 +120,6 @@ License: You must have a valid license purchased only from themeforest(the above
 				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 				<li class="dropdown dropdown-user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" class="img-circle" src="../assets/admin/layout/img/avatar3_small.jpg"/>
 					<span class="username username-hide-on-mobile">
 					{{ Auth::user()->name }}</span>
 					<i class="fa fa-angle-down"></i>
