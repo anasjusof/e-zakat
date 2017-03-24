@@ -56,7 +56,7 @@
 	        <div class="portlet-title">
 	            <div class="caption">
 	                <i class="icon-calendar font-red"></i>
-	                <span class="caption-subject font-red sbold uppercase">Zakat Histories</span>
+	                <span class="caption-subject font-red sbold uppercase">Pay Zakat</span>
 	            </div>
 	        </div>
 	        <div class="portlet-body">
