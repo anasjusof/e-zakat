@@ -83,4 +83,8 @@ class ZakatController extends Controller
     {
         //
     }
+
+    public function showLogin(){
+        return view('login.login');
+    }
 }

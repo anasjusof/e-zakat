@@ -65,7 +65,7 @@
 	                	<div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Bank</label>
 				            <div class="col-md-8">
-				                    <select class="bs-select form-control">
+				                    <select class="bs-select form-control input-line">
 				                        <option>Maybank</option>
 				                        <option>CIMB</option>
 				                        <option>Hong Leong</option>
@@ -77,13 +77,13 @@
                             <div class="col-md-8">
                                 <div class="input-icon right">
                                     <i class="fa fa-info"></i>
-                                    <input type="password" class="form-control" id="inputPassword1"> </div>
+                                    <input type="password" class="form-control input-line" id="inputPassword1"> </div>
                             </div>
                         </div>
 				        <div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Zakat Type</label>
 				            <div class="col-md-8">
-				                    <select class="bs-select form-control">
+				                    <select class="bs-select form-control input-line">
 				                        <option>Zakat Option 1</option>
 				                        <option>Zakat Option 2</option>
 				                        <option>Zakat Option 3</option>
@@ -93,7 +93,7 @@
 				        <div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Select date</label>
 				            <div class="col-md-8">
-				                <div class="input-group date date-picker" data-date="10/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+				                <div class="input-group date date-picker input-line" data-date="10/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
 				                    <input type="text" class="form-control" readonly="">
 				                    <span class="input-group-btn">
 				                        <button class="btn default" type="button">
@@ -106,7 +106,7 @@
 				        <div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Upload Receipt</label>
 				            <div class="col-md-8">
-				                <input class="form-control green-meadow" type="file" name="fileToUpload" id="fileToUpload">
+				                <input class="form-control input-line" type="file" name="fileToUpload" id="fileToUpload">
 				            </div>
 				        </div>
 				        <div class="form-group col-md-12">
