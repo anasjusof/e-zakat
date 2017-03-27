@@ -20,6 +20,7 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/showLogin', ['uses'=>'ZakatController@showLogin'])->name('test.showLogin');
+Route::get('/showApproval', ['uses'=>'ZakatController@showApproval'])->name('admin.showApproval');
 
 Route::resource('/user', 'UserController');
 

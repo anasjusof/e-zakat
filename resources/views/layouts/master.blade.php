@@ -92,7 +92,8 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-<body onload="updateClock(); setInterval('updateClock()', 1000 )" class="page-header-fixed page-quick-sidebar-over-content page-style-square page-sidebar-reversed page-sidebar-closed"> 
+<body  class="page-header-fixed page-quick-sidebar-over-content page-style-square page-sidebar-reversed page-sidebar-closed">
+<!-- onload="updateClock(); setInterval('updateClock()', 1000 )" Insert into body to enable clock -->
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
 	<!-- BEGIN HEADER INNER -->
@@ -213,7 +214,16 @@ License: You must have a valid license purchased only from themeforest(the above
 				<div class="page-toolbar">
 					<div class="pull-right tooltips btn btn-fit-height grey-gallery">
 						<i class="icon-calendar"></i>&nbsp;
-						{{Carbon\Carbon::now()->format('d-m-Y')}} <span id="clock">&nbsp;</span>
+						<?php 
+							$dt = Carbon\Carbon::now(); 
+							setlocale(LC_TIME, '');
+							echo $dt->formatLocalized('%A') . ' — '; 
+						?>
+
+						{{Carbon\Carbon::now()->format('d-m-Y')}} 
+
+						<span id="clock">&nbsp;</span>
+
 
 					</div>
 				</div>

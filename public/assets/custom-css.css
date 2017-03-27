@@ -54,7 +54,7 @@
 {
 	border: none !important;
     background-color: transparent !important; 
-    border-bottom: 1px solid #FFFF9D !important;
+    border-bottom: 1px solid #FBFF57 !important;
     height: 43px !important;
 }
 
@@ -81,3 +81,18 @@
 .padding-top-50px{
 	padding-top: 50px !important;
 }
+
+.min-width-100px{
+	min-width: 100px !important;
+}
+
+.table.table-light > thead > tr > th {
+	color: #555555;
+}
+
+.table.table-light > tbody > tr > td {
+	color: #555555;
+}
+
+
+
