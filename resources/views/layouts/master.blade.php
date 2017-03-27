@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-<body class="page-header-fixed page-quick-sidebar-over-content page-style-square page-sidebar-reversed page-sidebar-closed"> 
+<body onload="updateClock(); setInterval('updateClock()', 1000 )" class="page-header-fixed page-quick-sidebar-over-content page-style-square page-sidebar-reversed page-sidebar-closed"> 
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
 	<!-- BEGIN HEADER INNER -->
@@ -211,9 +211,10 @@ License: You must have a valid license purchased only from themeforest(the above
 					</li>
 				</ul>
 				<div class="page-toolbar">
-					<div class="pull-right tooltips btn btn-fit-height grey-salt">
+					<div class="pull-right tooltips btn btn-fit-height grey-gallery">
 						<i class="icon-calendar"></i>&nbsp;
-						{{Carbon\Carbon::now()}}
+						{{Carbon\Carbon::now()->format('d-m-Y')}} <span id="clock">&nbsp;</span>
+
 					</div>
 				</div>
 			</div>
@@ -276,6 +277,43 @@ License: You must have a valid license purchased only from themeforest(the above
 <script src="/../assets/admin/layout/scripts/demo.js" type="text/javascript"></script>
 <script src="/../assets/admin/pages/scripts/components-pickers.js"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
+
+
+<!-- Clock -->
+<script type="text/javascript">
+<!--
+
+function updateClock ( )
+{
+  var currentTime = new Date ( );
+
+  var currentHours = currentTime.getHours ( );
+  var currentMinutes = currentTime.getMinutes ( );
+  var currentSeconds = currentTime.getSeconds ( );
+
+  // Pad the minutes and seconds with leading zeros, if required
+  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+
+  // Choose either "AM" or "PM" as appropriate
+  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+
+  // Convert the hours component to 12-hour format if needed
+  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+
+  // Convert an hours component of "0" to "12"
+  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+
+  // Compose the string for display
+  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
+
+  // Update the time display
+  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
+}
+
+// -->
+</script>
+
 <script>
         jQuery(document).ready(function() {       
            // initiate layout and plugins
