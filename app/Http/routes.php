@@ -19,11 +19,25 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
-Route::get('/showLogin', ['uses'=>'ZakatController@showLogin'])->name('test.showLogin');
-Route::get('/showApproval', ['uses'=>'ZakatController@showApproval'])->name('admin.showApproval');
+Route::get('/showLogin', ['uses'=>'AdminController@showLogin'])->name('test.showLogin');
+Route::get('/showRegistration', ['uses'=>'AdminController@showRegistration'])->name('test.showRegistration');
+Route::get('/showForgotPassword', ['uses'=>'AdminController@showForgotPassword'])->name('test.showForgotPassword');
 
-Route::resource('/user', 'UserController');
 
-Route::resource('/zakat', 'ZakatController');
+
+//If roles == 1
+Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
+
+	Route::get('/showApproval', ['uses'=>'AdminController@showApproval'])->name('admin.showApproval');
+
+});
+
+
+//If roles == 1 OR 2
+Route::group(['middleware'=>['auth', 'checkRole:1|2']], function(){
+
+	Route::resource('/user', 'UserController');
+
+});
 
 

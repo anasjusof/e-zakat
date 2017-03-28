@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class ZakatController extends Controller
+class AdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -88,7 +88,17 @@ class ZakatController extends Controller
         return view('login.login');
     }
 
+    public function showRegistration(){
+        return view('login.registration');
+    }
+
+    public function showForgotPassword(){
+        return view('login.forgot-password');
+    }
+
     public function showApproval(){
         return view('admin.approval');
     }
+
+    
 }
