@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use Auth;
+
+use App\History;
+use App\Bank;
+
 class UserController extends Controller
 {
     /**
@@ -15,7 +20,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $user_id = Auth::user()->id;
+
+        $directory = '/images/';
+
+        $banks = Bank::get();
+
+        $histories = History::select('users.name as username', 'users.email','histories.zakats_id','histories.created_at', 'receipts.filename', 'histories.status')
+                                ->join('users', 'histories.users_id', '=', 'users.id')
+                                ->join('receipts', 'histories.receipts_id', '=', 'receipts.id')
+                                ->where('histories.users_id', '=', $user_id)
+                                ->paginate(5);
+
+        return view('users.index', compact('histories'))
+                                    ->with('directory', $directory)
+                                    ->with('banks', $banks);
     }
 
     /**

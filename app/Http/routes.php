@@ -23,6 +23,8 @@ Route::get('/showLogin', ['uses'=>'AdminController@showLogin'])->name('test.show
 Route::get('/showRegistration', ['uses'=>'AdminController@showRegistration'])->name('test.showRegistration');
 Route::get('/showForgotPassword', ['uses'=>'AdminController@showForgotPassword'])->name('test.showForgotPassword');
 
+Route::post('/insertZakat', ['uses'=>'ZakatController@insertZakat'])->name('zakat.insertZakat');
+
 
 
 //If roles == 1
@@ -37,6 +39,7 @@ Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
 Route::group(['middleware'=>['auth', 'checkRole:1|2']], function(){
 
 	Route::resource('/user', 'UserController');
+	
 
 });
 

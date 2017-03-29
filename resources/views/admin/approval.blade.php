@@ -25,6 +25,7 @@
 	                <table class="table table-hover table-light color-grey">
 	                    <thead>
 	                        <tr class="uppercase">
+	                        	<th> <input type="checkbox"> </th>
 	                            <th> # </th>
 	                            <th> Username</th>
 	                            <th> Email</th>
@@ -35,6 +36,42 @@
 	                        </tr>
 	                    </thead>
 	                    <tbody>
+	                    	<?php $count = 1; ?>
+	                    	@foreach($histories as $history)
+	                    	
+      						<?php $currentPageTotalNumber = ($histories->currentPage() - 1) * 5; ?>
+	                        <tr>
+	                        	<td> <input type="checkbox"> </td>
+	                            <td>{{$count + $currentPageTotalNumber}}</td>
+	                            <td> {{ $history->name }}</td>
+	                            <td> {{ $history->email }} </td>
+	                            <td> {{ $history->zakats_id == 1 ? 'Zakat Fitrah' : 'Zakat Pendapatan' }}</td>
+	                            <td> {{ $history->created_at }}</td>
+	                            <td>
+		                            <a class="btn btn-transparent blue btn-circle btn-sm active" href="{{ $directory.$history->filename }}" download>
+		                            	Download
+		                            </a>
+	                            </td>
+	                            <td>
+	                                <span 
+	                                	class="label min-width-100px
+	                                	@if ($history->status == 0){{ 'label-default' }}
+	                                	@elseif ($history->status == 1){{ 'label-success' }}
+	                                	@else {{ 'label-danger' }}
+	                                	@endif">
+
+	                                	@if ($history->status == 0){{ 'Pending' }}
+	                                	@elseif ($history->status == 1){{ 'Valid' }}
+	                                	@else {{ 'Not Valid' }}
+	                                	@endif
+
+	                                </span>
+	                            </td>
+	                        </tr>
+	                        <?php $count++ ?>
+	                        @endforeach
+
+	                        <!--
 	                        <tr>
 	                            <td> 1 </td>
 	                            <td> Anas Jusof</td>
@@ -91,11 +128,23 @@
                                     </div>
 	                            </td>
 	                        </tr>
+	                        -->
 	                    </tbody>
 	                </table>
 	            </div>
 	        </div>
+	        <div class="row">
+	        	<div class="col-md-6">
+	        		<button class="btn btn-sm green">Update Status</button>
+	        	</div>
+	        	<div class="col-md-6">
+	        		<div class="pull-right">
+	        			{{$histories->render()}}
+	        		</div>
+	        	</div>
+	        </div>
 	    </div>
+
 	    <!-- END BORDERED TABLE PORTLET-->
 	</div>
     

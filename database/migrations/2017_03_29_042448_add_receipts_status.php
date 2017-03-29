@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRolesTable extends Migration
+class AddReceiptsStatus extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,8 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
-        Schema::create('roles', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('type');
-            $table->timestamps();
+        Schema::table('histories', function (Blueprint $table) {
+            $table->integer('status');
         });
     }
 
@@ -26,6 +24,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('roles');
+        Schema::table('histories', function (Blueprint $table) {
+            $dropColumn->table('status');
+        });
     }
 }

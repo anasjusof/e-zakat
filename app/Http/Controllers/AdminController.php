@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\History;
+
 class AdminController extends Controller
 {
     /**
@@ -97,7 +99,16 @@ class AdminController extends Controller
     }
 
     public function showApproval(){
-        return view('admin.approval');
+
+        $directory = '/images/';
+
+        $histories = History::select('users.name', 'users.email','histories.zakats_id','histories.created_at', 'receipts.filename', 'histories.status')
+                                ->join('users', 'histories.users_id', '=', 'users.id')
+                                ->join('receipts', 'histories.receipts_id', '=', 'receipts.id')
+                                ->paginate(5);
+
+        return view('admin.approval', compact('histories'))
+                                        ->with('directory', $directory);
     }
 
     
