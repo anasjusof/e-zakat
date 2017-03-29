@@ -84,12 +84,12 @@
 				            <label for="inputPassword1" class="col-md-4 control-label">Zakat Type</label>
 				            <div class="col-md-8">
 				                    <select class="bs-select form-control input-line">
-				                        <option>Zakat Option 1</option>
-				                        <option>Zakat Option 2</option>
-				                        <option>Zakat Option 3</option>
+				                        <option value="1">Zakat Fitrah</option>
+				                        <option value="2">Zakat Pendapatan</option>
 				                    </select>
 				            </div>
 				        </div>
+				        <!--
 				        <div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Select date</label>
 				            <div class="col-md-8">
@@ -103,6 +103,7 @@
 				                </div>
 				            </div>
 				        </div>
+				        -->
 				        <div class="form-group col-md-12">
 				            <label for="inputPassword1" class="col-md-4 control-label">Upload Receipt</label>
 				            <div class="col-md-8">
