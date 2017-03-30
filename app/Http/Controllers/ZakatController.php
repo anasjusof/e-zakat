@@ -45,4 +45,23 @@ class ZakatController extends Controller
 
     	return redirect()->back();
     }
+
+    public function updateZakatStatus(Request $request){
+
+        foreach($request->history as $history){
+
+            $pieces = explode("-", $history);
+            $history_id = $pieces[0];
+            $status = $pieces[1];
+
+            $historyDB = History::find($history_id);
+
+            $historyDB->status = $status;
+
+            $historyDB->save();
+
+        }
+
+        return redirect()->back();
+    }
 }

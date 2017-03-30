@@ -166,13 +166,38 @@ License: You must have a valid license purchased only from themeforest(the above
 				<li class="sidebar-search-wrapper" style="margin-bottom: 15px">
 
 				</li>
+				@if(Auth::user()->roles_id == 1)
 				<li>
 					<a href="javascript:;">
 					<i class="icon-home"></i>
-					<span class="title">Zakat</span>
-					<span class="selected"></span>
-					<span class="arrow open"></span>
+					<span class="title">Admin</span>
 					</a>
+					<ul class="sub-menu">
+						<li>
+							<a href="{{ route('admin.showApproval') }} ">
+							<i class="fa fa-money"></i>
+							Zakat Management</a>
+						</li>
+						<li>
+							<a href="{{ route('bank.index') }}">
+							<i class="fa fa-bank"></i>
+							Banks Account Management</a>
+						</li>
+						<li>
+							<a href="{{ route('admin.management') }}">
+							<i class="fa fa-user"></i>
+							Admin Management</a>
+						</li>
+					</ul>
+				</li>
+
+				@endif
+				<li>
+					<a href="{{ route('user.index') }}">
+					<i class="fa fa-money"></i>
+					<span class="title">Zakat</span>
+					</a>
+					<!--
 					<ul class="sub-menu">
 						<li>
 							<a href=" ">
@@ -185,6 +210,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							View your history</a>
 						</li>
 					</ul>
+					-->
 				</li>
 
 			</ul>

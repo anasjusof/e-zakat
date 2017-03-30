@@ -23,7 +23,7 @@ Route::get('/showLogin', ['uses'=>'AdminController@showLogin'])->name('test.show
 Route::get('/showRegistration', ['uses'=>'AdminController@showRegistration'])->name('test.showRegistration');
 Route::get('/showForgotPassword', ['uses'=>'AdminController@showForgotPassword'])->name('test.showForgotPassword');
 
-Route::post('/insertZakat', ['uses'=>'ZakatController@insertZakat'])->name('zakat.insertZakat');
+
 
 
 
@@ -31,6 +31,16 @@ Route::post('/insertZakat', ['uses'=>'ZakatController@insertZakat'])->name('zaka
 Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
 
 	Route::get('/showApproval', ['uses'=>'AdminController@showApproval'])->name('admin.showApproval');
+	Route::patch('/updateZakatStatus', ['uses'=>'ZakatController@updateZakatStatus'])->name('zakat.updateZakatStatus');
+
+	Route::get('/banks', ['uses'=>'BankController@index'])->name('bank.index');
+	Route::delete('/banks/delete', ['uses'=>'BankController@deleteBank'])->name('bank.delete');
+	Route::post('/banks/create', ['uses'=>'BankController@createBank'])->name('bank.create');
+
+	Route::get('/admin-management', ['uses'=>'AdminController@adminManagement'])->name('admin.management');
+	Route::delete('/admin-management/delete', ['uses'=>'AdminController@adminDelete'])->name('admin.delete');
+	Route::post('/admin-management/create', ['uses'=>'AdminController@adminCreate'])->name('admin.create');
+
 
 });
 
@@ -39,6 +49,7 @@ Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
 Route::group(['middleware'=>['auth', 'checkRole:1|2']], function(){
 
 	Route::resource('/user', 'UserController');
+	Route::post('/insertZakat', ['uses'=>'ZakatController@insertZakat'])->name('zakat.insertZakat');
 	
 
 });

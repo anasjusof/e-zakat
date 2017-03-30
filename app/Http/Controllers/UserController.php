@@ -30,6 +30,7 @@ class UserController extends Controller
                                 ->join('users', 'histories.users_id', '=', 'users.id')
                                 ->join('receipts', 'histories.receipts_id', '=', 'receipts.id')
                                 ->where('histories.users_id', '=', $user_id)
+                                ->orderBy('histories.id', 'DESC')
                                 ->paginate(5);
 
         return view('users.index', compact('histories'))

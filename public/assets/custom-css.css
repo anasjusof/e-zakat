@@ -94,5 +94,18 @@
 	color: #555555;
 }
 
+.text-green{
+    color: green;
+}
+
+.text-red{
+    color: red;
+}
+
+.border-bottom-with-10px-padding-bottom{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+}
+
 
 

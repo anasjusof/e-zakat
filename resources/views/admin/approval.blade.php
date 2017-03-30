@@ -2,11 +2,12 @@
 
 @section('head')
 
+<link href="../../assets/global/plugins/icheck/skins/all.css" rel="stylesheet"/>
 
 @stop
 
 @section('title')
-    Users
+    Admin - Zakat Histories
 @stop
 
 @section('content')
@@ -25,7 +26,7 @@
 	                <table class="table table-hover table-light color-grey">
 	                    <thead>
 	                        <tr class="uppercase">
-	                        	<th> <input type="checkbox"> </th>
+	                        	<!--<th> <input id="checkall-checkbox" type="checkbox"> </th>-->
 	                            <th> # </th>
 	                            <th> Username</th>
 	                            <th> Email</th>
@@ -33,6 +34,7 @@
 	                            <th> Date </th>
 	                            <th> Receipt </th>
 	                            <th> Status </th>
+	                            <th> Status Approval </th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
@@ -41,7 +43,7 @@
 	                    	
       						<?php $currentPageTotalNumber = ($histories->currentPage() - 1) * 5; ?>
 	                        <tr>
-	                        	<td> <input type="checkbox"> </td>
+	                        	<!--<td> <input class="single-checkbox" type="checkbox" name="history_id[]" form="form_update_status" value="{{ $history->history_id }}"> </td>-->
 	                            <td>{{$count + $currentPageTotalNumber}}</td>
 	                            <td> {{ $history->name }}</td>
 	                            <td> {{ $history->email }} </td>
@@ -67,79 +69,37 @@
 
 	                                </span>
 	                            </td>
+	                            <td>
+	                            	<div class="icheck-list">
+										<label class="text-green border-bottom-with-10px-padding-bottom">
+											<div class="iradio_minimal-orange" style="position: relative;">
+											<input type="radio" form='form_update_status' value="{{ $history->history_id }}-1" name="history[{{ $history->history_id }}]" class="icheck" style="position: absolute; opacity: 0;">
+											</div> Valid
+										</label>
+										<label class="text-red">
+											<div class="iradio_minimal-orange" style="position: relative;">
+											<input type="radio" form='form_update_status' value="{{ $history->history_id }}-2" name="history[{{ $history->history_id }}]" class="icheck" style="position: absolute; opacity: 0;">
+											</div> Invalid
+										</label>
+									</div>
+	                            </td>
 	                        </tr>
 	                        <?php $count++ ?>
 	                        @endforeach
-
-	                        <!--
-	                        <tr>
-	                            <td> 1 </td>
-	                            <td> Anas Jusof</td>
-	                            <td> anas@asdasd.com</td>
-	                            <td> Zakat Fitrah </td>
-	                            <td> 03-03-2017 </td>
-	                            <td> <button class="btn btn-transparent blue btn-circle btn-sm active"> Download </button> </td>
-	                            <td>
-	                                <div class="mt-action-buttons ">
-                                        <div class="btn-group" data-toggle="buttons">
-											<label class="btn btn-default min-width-100px" style="margin:0;">
-											<input type="radio" class="toggle Valid"> Valid </label>
-											<label class="btn btn-default min-width-100px">
-											<input type="radio" class="toggle invalid"> Invalid </label>
-										</div>
-                                    </div>
-	                            </td>
-	                        </tr>
-
-	                        <tr>
-	                            <td> 2 </td>
-	                            <td> Aliff Aziz</td>
-	                            <td> aliff@asdasd.com</td>
-	                            <td> Zakat Fitrah </td>
-	                            <td> 03-03-2017 </td>
-	                            <td> <button class="btn btn-transparent blue btn-circle btn-sm active"> Download </button> </td>
-	                            <td>
-	                                <div class="mt-action-buttons ">
-                                        <div class="btn-group" data-toggle="buttons">
-											<label class="btn btn-default min-width-100px active" style="margin:0;">
-											<input type="radio" class="toggle Valid"> Valid </label>
-											<label class="btn btn-default min-width-100px">
-											<input type="radio" class="toggle invalid"> Invalid </label>
-										</div>
-                                    </div>
-	                            </td>
-	                        </tr>
-
-	                        <tr>
-	                            <td> 3 </td>
-	                            <td> Malik Noor</td>
-	                            <td> maliki_nooriah@asdasd.com</td>
-	                            <td> Zakat Fitrah </td>
-	                            <td> 03-03-2017 </td>
-	                            <td> <button class="btn btn-transparent blue btn-circle btn-sm active"> Download </button> </td>
-	                            <td>
-	                                <div class="mt-action-buttons ">
-                                        <div class="btn-group" data-toggle="buttons">
-											<label class="btn btn-default min-width-100px" style="margin:0;">
-											<input type="radio" class="toggle Valid"> Valid </label>
-											<label class="btn btn-default min-width-100px active">
-											<input type="radio" class="toggle invalid"> Invalid </label>
-										</div>
-                                    </div>
-	                            </td>
-	                        </tr>
-	                        -->
 	                    </tbody>
 	                </table>
 	            </div>
 	        </div>
 	        <div class="row">
 	        	<div class="col-md-6">
-	        		<button class="btn btn-sm green">Update Status</button>
+	        		{{$histories->render()}}
 	        	</div>
 	        	<div class="col-md-6">
 	        		<div class="pull-right">
-	        			{{$histories->render()}}
+	        			
+	        			{!! Form::open(['method'=>'PATCH', 'action'=>['ZakatController@updateZakatStatus'], 'id'=>'form_update_status']) !!}
+	        			<button class="btn btn-sm green">Update Status</button>
+	        		{!! Form::close() !!}
 	        		</div>
 	        	</div>
 	        </div>
@@ -152,5 +112,27 @@
 @stop
 
 @section('script')
+<script src="../../assets/global/plugins/icheck/icheck.min.js"></script>
+
+<script src="../../assets/admin/pages/scripts/form-icheck.js"></script>
+
+<script> FormiCheck.init();  </script>
+
+<script>
+	$(document).ready(function(){
+       $('#checkall-checkbox').click(function(){
+            if(this.checked){
+                $('.checker').find('span').addClass('checked');
+                $("input.single-checkbox").prop('checked', true).show();
+            }
+            else{
+                $('.checker').find('span').removeClass('checked');
+                $("input.single-checkbox").prop('checked', false);
+            }
+       });
+    });
+
+</script>
+
 
 @stop
