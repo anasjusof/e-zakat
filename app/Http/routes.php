@@ -40,6 +40,7 @@ Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
 	Route::get('/admin-management', ['uses'=>'AdminController@adminManagement'])->name('admin.management');
 	Route::delete('/admin-management/delete', ['uses'=>'AdminController@adminDelete'])->name('admin.delete');
 	Route::post('/admin-management/create', ['uses'=>'AdminController@adminCreate'])->name('admin.create');
+	Route::patch('/admin-management/edit', ['uses'=>'AdminController@adminEdit'])->name('admin.edit');
 
 
 });

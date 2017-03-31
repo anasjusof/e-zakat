@@ -37,7 +37,7 @@
 	                            <th> Status Approval </th>
 	                        </tr>
 	                    </thead>
-	                    <tbody>
+	                    <tbody id="tbody">
 	                    	<?php $count = 1; ?>
 	                    	@foreach($histories as $history)
 	                    	
@@ -98,7 +98,7 @@
 	        		<div class="pull-right">
 	        			
 	        			{!! Form::open(['method'=>'PATCH', 'action'=>['ZakatController@updateZakatStatus'], 'id'=>'form_update_status']) !!}
-	        			<button class="btn btn-sm green">Update Status</button>
+	        			<button class="btn btn-sm green updateBtn">Update Status</button>
 	        		{!! Form::close() !!}
 	        		</div>
 	        	</div>
@@ -133,6 +133,8 @@
     });
 
 </script>
+
+@include('errors.error-validation-script')
 
 
 @stop

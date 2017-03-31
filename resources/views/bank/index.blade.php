@@ -30,7 +30,7 @@
 	                            <th> Account Number </th>
 	                        </tr>
 	                    </thead>
-	                    <tbody>
+	                    <tbody id="tbody">
 							<?php $count = 1; ?>
 	                        @foreach($banks as $bank)
 	                        <?php $currentPageTotalNumber = ($banks->currentPage() - 1) * 5; ?>
@@ -50,7 +50,7 @@
 	        <div class="row">
 	        	<div class="col-md-6">
 	        		{!! Form::open(['method'=>'DELETE', 'action'=>['BankController@deleteBank'], 'id'=>'form_update_status']) !!}
-	        			<button class="btn btn-sm btn-danger">Delete</button>
+	        			<button class="btn btn-sm btn-danger deleteBtn">Delete</button>
 	        		{!! Form::close() !!}
 	        	</div>
 	        	<div class="col-md-6">
@@ -118,5 +118,7 @@
     });
 
 </script>
+
+@include('errors.error-validation-script')
 
 @stop

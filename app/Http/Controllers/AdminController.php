@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\UserRequest;
 
 use App\History;
 use App\User;
@@ -129,13 +130,34 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function adminCreate(Request $request){
+    public function adminCreate(UserRequest $request){
         $input = $request->except('confirm_password');
 
         $input['roles_id'] = 1;
         $input['password'] = bcrypt($request->password);
 
         User::create($input);
+
+        return redirect()->back();
+    }
+
+    public function adminEdit(UserRequest $request){
+        $input = $request->except('confirm_password', 'email');
+
+        $user = User::findOrFail($input['id']);
+
+        $input['password'] = preg_replace('/\s+/', '', $input['password']);
+
+        if(empty($input['password']) || $input['password'] == ''){
+            $user->name = $input['name'];    
+        }
+        else{
+            $user->name = $input['name'];
+            $user->password = bcrypt($input['password']);
+        }
+        
+
+        $user->save();
 
         return redirect()->back();
     }
