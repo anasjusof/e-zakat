@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\ZakatRequest;
 
 use Auth;
 use File;
@@ -14,7 +15,7 @@ use App\History;
 
 class ZakatController extends Controller
 {
-    public function insertZakat(Request $request){
+    public function insertZakat(ZakatRequest $request){
 
     	$input = $request->only('zakat_type', 'receipts_image', 'banks_id');
     	$user = Auth::user();

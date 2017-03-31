@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Http\Requests\BankRequest;
+
 
 use App\Bank;
 
@@ -26,7 +28,7 @@ class BankController extends Controller
     	return redirect()->back();
     }
 
-    public function createBank(Request $request){
+    public function createBank(BankRequest $request){
     	Bank::create($request->all());
 
     	return redirect()->back();

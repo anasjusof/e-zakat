@@ -130,7 +130,7 @@
 							<div class="form-group col-md-12">
 								<label for="title" class="col-sm-2 control-label">Jenis Pendapatan</label>
 								<div class="col-sm-3">
-									<select class="form-control" name="salaryType" id="salaryType" readonly>
+									<select class="form-control" name="salaryType" id="salaryType" disabled>
 										<option class="form-control" value=0>Bulanan</option>
 										<!--<option class="form-control" value=1>Tahunan</option>-->
 									</select>
@@ -149,13 +149,15 @@
 							</div>
 							<div class="form-group col-md-12">
 								<label for="content" class="col-sm-2 control-label">Pendapatan Lain</label>
-								<div class="col-sm-3">
+
+								<div class="col-sm-3 has-feedback">
 									<div class="input-group">
 										<span class="input-group-addon">RM</span>
-										<input type="text" class="form-control" data-fv-row=".col-sm-3" data-fv-numeric="true" data-fv-numeric-message="Sila masukkan nombor sahaja" id="otherIncome" name="otherIncome" placeholder="0">
-									</div>
-								</div>
-								<span class="help-block">Bonus, Sewaan, Pencen, Hadiah. <a href="#" data-toggle="modal" data-target="#tother">Maklumat Lanjut...</a></span>
+										<input type="text" class="form-control" data-fv-row=".col-sm-3" data-fv-numeric="true" data-fv-numeric-message="Sila masukkan nombor sahaja" id="otherIncome" name="otherIncome" placeholder="0" data-fv-field="otherIncome">
+									</div><i class="form-control-feedback fv-icon-no-label fv-bootstrap-icon-input-group" data-fv-icon-for="otherIncome" style="display: none;"></i>
+								<small class="help-block" data-fv-validator="numeric" data-fv-for="otherIncome" data-fv-result="NOT_VALIDATED" style="display: none;">Sila masukkan nombor sahaja</small></div>
+								<span class="help-block">Bonus, Sewaan, Pencen, Hadiah. <a href="#" data-toggle="modal" data-target="#maklumatLanjut">Maklumat Lanjut...</a></span>
+
 							</div>
 							<div class="form-group col-md-12">
 								<label for="content" class="col-sm-2 control-label">Jumlah Keseluruhan</label>
@@ -202,13 +204,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="form-group col-md-12">
-								<div class="col-sm-10 col-sm-offset-2">
-									<button type="submit" id="btnPay" name="btnPay" class="btn btn-primary">BAYAR</button>
-									<button type="submit" id="btnSave" name="btnSave" class="btn btn-warning">Simpan</button>
-									<button type="submit" id="btnSave" name="btnSave" class="btn btn-danger">Reset</button>
-								</div>
-							</div>
 						</div>
 				        <!--
 				        <div class="form-group col-md-12">
@@ -240,6 +235,62 @@
 	    </div>
 	    <!-- END BORDERED TABLE PORTLET-->
     </div>
+
+	<!-- Modal -->
+<div id="maklumatLanjut" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Pendapatan Lain</h4>
+      </div>
+      <div class="modal-body">
+       <div class="panel-heading">
+		    <h1>PENDAPATAN DARI SEMUA SUMBER - IAITU PENDAPATAN YANG DIPEROLEHI DARIPADA:</h1>
+		</div>
+      	<div class="panel-body">
+        <div>
+            <ul>
+                <li>
+                    Harta Penggajian dan Upah Kerja:
+                    <ul>
+                        <li>Gaji, upah, bonus, tuntutan kerja lebih masa, gratuiti, pampasan, pencen, hadiah, anugerah, insentif, ESOS (Skim Pilihan Saham Pekerja)
+                            dan apa - apa yang bersumberkan perkhidmatan atau penggajian.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Hasil Kerja Bebas
+                    <ul>
+                        <li>Bayaran perkhidmatan konsultansi profesional</li>
+                        <li>Bayaran atau keuntungan projek yang diterima daripada kontraktor</li>
+                        <li>Komisyen dan 'residual income' seperti jualan insuran, takaful, unit amanah, brokeraj dan seumpamanya</li>
+                        <li>Royalti atau komisyen hasil penulisan, penerbitan, aktiviti seni dan sebagainya</li>
+                    </ul>
+                </li>
+                <li>
+                    Harta Yang Menghasilkan Pendapatan (Mustaghallat)
+                    <ul>
+                        <li>Hasil sewaan aset seperti rumah, bangunan, kenderaan, premis, peralatan dan sebagainya</li>
+                        <li>Hasil produk ternakan seperti susu, telur, madu dan sebagainya</li>
+                    </ul>
+                </li>
+                <li>
+                    Pendapatan yang tidak perlu diambil pengiraan zakat: Tuntutan lojing, tuntuan ke luar negara, tuntutan keraian, tuntutan perbatuan dan tuntutan lain-lain
+                </li>
+            </ul>
+        </div>
+    </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
     
 </div>
 @stop
@@ -258,4 +309,34 @@
 
 
 </script>
+
+<script>
+	$('#monthlyIncome, #otherIncome').keyup(function(){
+
+			var pendapatan_tahunan = $('#monthlyIncome').val() * 12;
+
+			if(!$('#otherIncome').val()){
+				var pendapatan_lain = 0;
+			}
+			else{
+				var pendapatan_lain = $('#otherIncome').val();
+			}
+			
+			var total = parseInt(pendapatan_tahunan) + parseInt(pendapatan_lain);
+			$('#yearlyIncome').val(pendapatan_tahunan);
+
+			$('#jumlah_layak_zakat').val(total);
+			$('#totalIncome').val(total);
+
+			var zakat_setahun = (total * 0.025).toFixed(2);
+			var zakat_bulanan = (zakat_setahun / 12).toFixed(2);
+
+			$('#jumlah_kiraan_zakat_tahunan').val(zakat_setahun);
+			$('#jumlah_kiraan_zakat_bulanan').val(zakat_bulanan);
+			
+	});
+</script>
+
+@include('errors.validation-errors')
+
 @stop

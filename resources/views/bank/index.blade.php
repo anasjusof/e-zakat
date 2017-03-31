@@ -120,5 +120,6 @@
 </script>
 
 @include('errors.error-validation-script')
+@include('errors.validation-errors')
 
 @stop
