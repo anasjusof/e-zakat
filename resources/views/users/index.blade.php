@@ -241,52 +241,49 @@
   <div class="modal-dialog">
 
     <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Pendapatan Lain</h4>
-      </div>
-      <div class="modal-body">
-       <div class="panel-heading">
-		    <h1>PENDAPATAN DARI SEMUA SUMBER - IAITU PENDAPATAN YANG DIPEROLEHI DARIPADA:</h1>
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">Pendapatan Lain - PENDAPATAN DARI SEMUA SUMBER - IAITU PENDAPATAN YANG DIPEROLEHI DARIPADA:</h4>
 		</div>
-      	<div class="panel-body">
-        <div>
-            <ul>
-                <li>
-                    Harta Penggajian dan Upah Kerja:
-                    <ul>
-                        <li>Gaji, upah, bonus, tuntutan kerja lebih masa, gratuiti, pampasan, pencen, hadiah, anugerah, insentif, ESOS (Skim Pilihan Saham Pekerja)
-                            dan apa - apa yang bersumberkan perkhidmatan atau penggajian.
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    Hasil Kerja Bebas
-                    <ul>
-                        <li>Bayaran perkhidmatan konsultansi profesional</li>
-                        <li>Bayaran atau keuntungan projek yang diterima daripada kontraktor</li>
-                        <li>Komisyen dan 'residual income' seperti jualan insuran, takaful, unit amanah, brokeraj dan seumpamanya</li>
-                        <li>Royalti atau komisyen hasil penulisan, penerbitan, aktiviti seni dan sebagainya</li>
-                    </ul>
-                </li>
-                <li>
-                    Harta Yang Menghasilkan Pendapatan (Mustaghallat)
-                    <ul>
-                        <li>Hasil sewaan aset seperti rumah, bangunan, kenderaan, premis, peralatan dan sebagainya</li>
-                        <li>Hasil produk ternakan seperti susu, telur, madu dan sebagainya</li>
-                    </ul>
-                </li>
-                <li>
-                    Pendapatan yang tidak perlu diambil pengiraan zakat: Tuntutan lojing, tuntuan ke luar negara, tuntutan keraian, tuntutan perbatuan dan tuntutan lain-lain
-                </li>
-            </ul>
-        </div>
-    </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
+		<div class="modal-body">
+			<div class="panel-body">
+	        	<div>
+		            <ul>
+		                <li>
+		                    Harta Penggajian dan Upah Kerja:
+		                    <ul>
+		                        <li>Gaji, upah, bonus, tuntutan kerja lebih masa, gratuiti, pampasan, pencen, hadiah, anugerah, insentif, ESOS (Skim Pilihan Saham Pekerja)
+		                            dan apa - apa yang bersumberkan perkhidmatan atau penggajian.
+		                        </li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    Hasil Kerja Bebas
+		                    <ul>
+		                        <li>Bayaran perkhidmatan konsultansi profesional</li>
+		                        <li>Bayaran atau keuntungan projek yang diterima daripada kontraktor</li>
+		                        <li>Komisyen dan 'residual income' seperti jualan insuran, takaful, unit amanah, brokeraj dan seumpamanya</li>
+		                        <li>Royalti atau komisyen hasil penulisan, penerbitan, aktiviti seni dan sebagainya</li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    Harta Yang Menghasilkan Pendapatan (Mustaghallat)
+		                    <ul>
+		                        <li>Hasil sewaan aset seperti rumah, bangunan, kenderaan, premis, peralatan dan sebagainya</li>
+		                        <li>Hasil produk ternakan seperti susu, telur, madu dan sebagainya</li>
+		                    </ul>
+		                </li>
+		                <li>
+		                    Pendapatan yang tidak perlu diambil pengiraan zakat: Tuntutan lojing, tuntuan ke luar negara, tuntutan keraian, tuntutan perbatuan dan tuntutan lain-lain
+		                </li>
+		            </ul>
+	    		</div>
+	    	</div>
+	  	</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		</div>
     </div>
 
   </div>
