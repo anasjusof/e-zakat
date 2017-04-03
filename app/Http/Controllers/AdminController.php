@@ -9,6 +9,7 @@ use App\Http\Requests\UserRequest;
 
 use App\History;
 use App\User;
+use App\Bank;
 
 class AdminController extends Controller
 {
@@ -160,6 +161,31 @@ class AdminController extends Controller
         $user->save();
 
         return redirect()->back();
+    }
+
+    public function dashboard(){
+        $directory = '/images/';
+
+        $histories = History::select('histories.id as history_id', 'users.name', 'users.email','histories.zakats_id','histories.created_at', 'receipts.filename', 'histories.status')
+                                ->join('users', 'histories.users_id', '=', 'users.id')
+                                ->join('receipts', 'histories.receipts_id', '=', 'receipts.id')
+                                ->orderBy('histories.created_at', 'DESC')
+                                ->paginate(5);
+
+        $banks = Bank::orderBy('id', 'DESC')->paginate(5);
+
+        $admins = User::where('roles_id', '=', 1)->paginate(5);
+
+        $totals = History::get();
+
+        $pendings = History::where('status', '=', '0')->get();
+
+        $valids = History::where('status', '=', '1')->get();
+
+        $rejects = History::where('status', '=', '2')->get();
+
+        return view('admin.admin-dashboard', compact('histories', 'banks', 'admins', 'totals', 'pendings', 'valids', 'rejects'))
+                                        ->with('directory', $directory);
     }
 
     

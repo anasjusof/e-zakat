@@ -174,6 +174,11 @@ License: You must have a valid license purchased only from themeforest(the above
 					</a>
 					<ul class="sub-menu">
 						<li>
+							<a href="{{ route('admin.dashboard') }} ">
+							<i class="fa fa-dashboard"></i>
+							Dashboard</a>
+						</li>
+						<li>
 							<a href="{{ route('admin.showApproval') }} ">
 							<i class="fa fa-money"></i>
 							Zakat Management</a>
