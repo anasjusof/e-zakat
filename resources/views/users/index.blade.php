@@ -121,9 +121,9 @@
 				        </div>
 						<div id="zakat_fitrah_ezakat">
 							<div class="form-group col-md-12">
-								<label for="inputPassword1" class="col-md-4 control-label">Zakat Fitrah Tahun 2017</label>
+								<label for="inputPassword1" class="col-md-4 control-label">Zakat Fitrah Tahun {{ $jenisZakat->tahun }}</label>
 								<div class="col-md-8">
-									<input type="text" name="zakat_fitrah_upnm" class="form-control input-line" id="zakat_fitrah_upnm" value="RM20.00" readonly>
+									<input type="text" name="zakat_fitrah_upnm" class="form-control input-line" id="zakat_fitrah_upnm" value="RM {{ $jenisZakat->bayaran_zakat }}" readonly>
 								</div>
 							</div>
 						</div>

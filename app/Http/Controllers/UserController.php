@@ -34,9 +34,9 @@ class UserController extends Controller
                                 ->orderBy('histories.id', 'DESC')
                                 ->paginate(5);
 
-        return view('users.index', compact('histories'))
-                                    ->with('directory', $directory)
-                                    ->with('banks', $banks);
+        $jenisZakat = JenisZakat::orderBy('id', 'DESC')->get()->first();
+
+        return view('users.index', compact('histories', 'jenisZakat', 'banks', 'directory'));
     }
 
     /**
