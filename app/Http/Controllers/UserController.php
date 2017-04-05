@@ -10,6 +10,7 @@ use Auth;
 
 use App\History;
 use App\Bank;
+use App\JenisZakat;
 
 class UserController extends Controller
 {

@@ -119,6 +119,14 @@
 				                    </select>
 				            </div>
 				        </div>
+						<div id="zakat_fitrah_ezakat">
+							<div class="form-group col-md-12">
+								<label for="inputPassword1" class="col-md-4 control-label">Zakat Fitrah Tahun 2017</label>
+								<div class="col-md-8">
+									<input type="text" name="zakat_fitrah_upnm" class="form-control input-line" id="zakat_fitrah_upnm" value="RM20.00" readonly>
+								</div>
+							</div>
+						</div>
 				        <div id="zakat-pendapatan-div">
 							<div class="portlet-title">
 								<div class="caption">
@@ -299,9 +307,13 @@
 		function showDiv(elem){
 		if(elem.value == 2)
 		      document.getElementById('zakat-pendapatan-div').style.display = "block";
+		if(elem.value == 2)
+		      document.getElementById('zakat_fitrah_ezakat').style.display = "none";
 		
 		if(elem.value == 1)
 		      document.getElementById('zakat-pendapatan-div').style.display = "none";
+		if(elem.value == 1)
+		      document.getElementById('zakat_fitrah_ezakat').style.display = "block";
 		}
 
 
