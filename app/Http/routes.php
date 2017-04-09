@@ -43,6 +43,11 @@ Route::group(['middleware'=>['auth', 'checkRole:1']], function(){
 	Route::patch('/admin-management/edit', ['uses'=>'AdminController@adminEdit'])->name('admin.edit');
 	Route::get('/admin-dashboard', ['uses'=>'AdminController@dashboard'])->name('admin.dashboard');
 
+	Route::get('/jenis-zakat', ['uses'=>'JenisZakatManagementController@index'])->name('jenis-zakat.index');
+	Route::post('/jenis-zakat/create', ['uses'=>'JenisZakatManagementController@createZakat'])->name('jenis-zakat.createZakat');
+	Route::delete('/jenis-zakat/delete', ['uses'=>'JenisZakatManagementController@deleteZakat'])->name('jenis-zakat.deleteZakat');
+	Route::patch('/jenis-zakat/update', ['uses'=>'JenisZakatManagementController@updateZakat'])->name('jenis-zakat.updateZakat');
+
 
 });
 

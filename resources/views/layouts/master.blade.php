@@ -181,6 +181,11 @@ License: You must have a valid license purchased only from themeforest(the above
 						<li>
 							<a href="{{ route('admin.showApproval') }} ">
 							<i class="fa fa-money"></i>
+							Zakat History</a>
+						</li>
+						<li>
+							<a href="{{ route('jenis-zakat.index') }} ">
+							<i class="fa fa-money"></i>
 							Zakat Management</a>
 						</li>
 						<li>
