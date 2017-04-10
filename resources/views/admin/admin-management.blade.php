@@ -73,6 +73,7 @@
 	                <i class="icon-credit-card font-red"></i>
 	                <span class="caption-subject font-red sbold uppercase">Create New Admin</span>
 	            </div>
+	            <a href="{{ url()->previous() }}" class="btn btn-warning pull-right">Back</a>
 	        </div>
 	        <div class="portlet-body">
 	            <div class="table-scrollable table-scrollable-borderless">

@@ -21,7 +21,7 @@
 	        </div>
 	        <div class="portlet-body">
 		        <div class="row">
-	        		<div class="col-md-12"> <a href="{{ route('admin.showApproval') }}" class="btn green-turquoise pull-right margin-bottom-15px circle">Zakat Management</a> </div>
+	        		<div class="col-md-12"> <a href="{{ route('admin.showApproval') }}" class="btn green-turquoise pull-right margin-bottom-15px circle">Zakat History</a> </div>
 		            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
 						<div class="dashboard-stat blue-madison">
 							<div class="visual">

@@ -92,7 +92,7 @@ License: You must have a valid license purchased only from themeforest(the above
 <!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
 <!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
 <!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
-<body  class="page-header-fixed page-quick-sidebar-over-content page-style-square page-sidebar-reversed page-sidebar-closed">
+<body  class="page-header-fixed page-quick-sidebar-over-content page-style-square page-sidebar-fixed">
 <!-- onload="updateClock(); setInterval('updateClock()', 1000 )" Insert into body to enable clock -->
 <!-- BEGIN HEADER -->
 <div class="page-header navbar navbar-fixed-top">
@@ -100,7 +100,7 @@ License: You must have a valid license purchased only from themeforest(the above
 	<div class="page-header-inner">
 		<!-- BEGIN LOGO -->
 		<div class="page-logo">
-			<a href="index.html">
+			<a href="#">
 			<i class="icon-home" style="margin-top: 15px; font-size: 20px;"></i>
 			<div class="menu-toggler sidebar-toggler hide">
 				<!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -239,13 +239,9 @@ License: You must have a valid license purchased only from themeforest(the above
 			<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
-						<i class="fa fa-home"></i>
-						<a href="index.html">Home</a>
-						<i class="fa fa-angle-right"></i>
+						<i class="fa fa-home"></i>Home<i class="fa fa-angle-right"></i>
 					</li>
-					<li>
-						<a href="#">Dashboard</a>
-					</li>
+					<li>Dashboard</li>
 				</ul>
 				<div class="page-toolbar">
 					<div class="pull-right tooltips btn btn-fit-height grey-gallery">
