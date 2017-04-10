@@ -236,7 +236,7 @@ License: You must have a valid license purchased only from themeforest(the above
 			<h3 class="page-title">
 			@yield('title')
 			</h3>
-			<div class="page-bar">
+			<!--<div class="page-bar">
 				<ul class="page-breadcrumb">
 					<li>
 						<i class="fa fa-home"></i>Home<i class="fa fa-angle-right"></i>
@@ -259,7 +259,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 					</div>
 				</div>
-			</div>
+			</div>-->
 			<!-- END PAGE HEADER-->
 
 			<div class="clearfix">

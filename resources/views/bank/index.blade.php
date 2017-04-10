@@ -5,10 +5,34 @@
 @stop
 
 @section('title')
-    Manage Bank Account
+    Bank Account Management
 @stop
 
 @section('content')
+<div class="page-bar">
+	<ul class="page-breadcrumb">
+		<li>
+			<i class="fa fa-home"></i>Home<i class="fa fa-angle-right"></i>
+		</li>
+		<li>Bank Account Management</li>
+	</ul>
+	<div class="page-toolbar">
+		<div class="pull-right tooltips btn btn-fit-height grey-gallery">
+			<i class="icon-calendar"></i>&nbsp;
+			<?php 
+				$dt = Carbon\Carbon::now(); 
+				setlocale(LC_TIME, '');
+				echo $dt->formatLocalized('%A') . ' — '; 
+			?>
+
+			{{Carbon\Carbon::now()->format('d-m-Y')}} 
+
+			<span id="clock">&nbsp;</span>
+
+
+		</div>
+	</div>
+</div>
 <div class="row">
 	<div class="col-md-5">
 		<!-- BEGIN BORDERED TABLE PORTLET-->
